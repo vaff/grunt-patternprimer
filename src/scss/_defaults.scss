@@ -1,0 +1,32 @@
+
+
+html {
+	border-top: 0.5em solid $brand-color-one;
+	background-color: #eee;
+}
+body {
+	background-color: #fefefe;
+	background: rgba(255,255,255,0.9);
+	margin: 0 2.5%;
+	padding: 0 2.5%;
+	font-size: 100%;
+	line-height: 1.875;
+	font-family: $font-copy;
+	color: $copy-font-color;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: $brand-color-two;
+	border-color: rgba(0,0,0,0.13);
+}
+
+
+h1 {
+	font-family: $font-header-one;
+	font-weight: normal;
+	font-size: 2.5em;
+	line-height: 1.125;
+	padding-top: 1em;
+	margin-bottom: 0.3em;
+	color: $header-font-color;
+	
+}

@@ -1,0 +1,97 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+.clear:before, .clear:after {
+  content: ' ';
+  display: table;
+}
+
+.clear {
+  *zoom: 1;
+}
+.clear:after {
+  clear: both;
+}
+
+html {
+  border-top: 0.5em solid #2fb135;
+  background-color: #eee;
+}
+
+body {
+  background-color: #fefefe;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 0 2.5%;
+  padding: 0 2.5%;
+  font-size: 100%;
+  line-height: 1.875;
+  font-family: "Archivo Narrow";
+  color: #444444;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #2fb135;
+  border-color: rgba(0, 0, 0, 0.13);
+}
+
+h1 {
+  font-family: "Archivo Narrow";
+  font-weight: normal;
+  font-size: 2.5em;
+  line-height: 1.125;
+  padding-top: 1em;
+  margin-bottom: 0.3em;
+  color: #444444;
+}

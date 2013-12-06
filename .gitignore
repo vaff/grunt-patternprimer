@@ -7,6 +7,8 @@ lib-cov
 *.pid
 *.gz
 
+.sass-cache
+
 pids
 logs
 results
@@ -15,3 +17,4 @@ node_modules
 npm-debug.log
 
 test/fixtures/output
+test/fixtures/patterns
