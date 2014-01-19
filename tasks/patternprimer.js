@@ -1,4 +1,5 @@
 // ext. libs
+var fm = require('yaml-front-matter');
 var connect = require('connect');
 var fs = require('fs');
 
@@ -33,6 +34,7 @@ module.exports = function(grunt) {
     '    width: 90%;',
     '}',
     '</style>',
+	'{{js}}',
     '</head>',
     '<body>'].join('');
 
@@ -61,6 +63,12 @@ module.exports = function(grunt) {
       return '<link rel="stylesheet" type="text/css" href="' + file + '"/>';
     });
     sourceFile = sourceFile.replace('{{css}}', css.join(''));
+ 
+    // modify the sourcefile js according to the settings
+    var js = settings.js.map(function (file) {
+      return '<script type="text/javascript" src="' + file + '"/>';
+    });
+    sourceFile = sourceFile.replace('{{js}}', js.join(''));
 
     // spit out the default sourcefile
     cb(sourceFile);
@@ -71,12 +79,12 @@ module.exports = function(grunt) {
     getSourceFile(function generatePatterns(content) {
       patterns.forEach(function (file) {
         content += '<hr/>';
-        content += '<div class="pattern"><div class="display">';
-        content += file.content;
-        content += '</div><div class="source"><textarea rows="6" cols="30">';
-        content += simpleEscaper(file.content);
-        content += '</textarea>';
-        content += '</div></div>';
+        content += '<div class="pattern">'
+		content += '<div class="display">'+ file.content +'</div>';
+        content += '<div class="source"><a href="#">Links</a><br>';
+		content += '<textarea rows="6" cols="30">'+ simpleEscaper(file.content) +'</textarea>';
+        content += '</div>';
+		content += '</div>';
       });
       content += '</body></html>';
       cb(content);
@@ -145,7 +153,8 @@ module.exports = function(grunt) {
       dest: data.dest || options.dest || 'docs',
       snapshot: data.snapshot || options.snapshot || false,
       index: data.frame || options.frame || null,
-      css: data.css || options.css || ['global.css']
+      css: data.css || options.css || ['global.css'],
+      js: data.js || options.js || []
     };
 
     // local pattern folder (there are the html snapshots)
@@ -206,6 +215,11 @@ module.exports = function(grunt) {
         settings.css.forEach(function (file) {
           grunt.file.copy('./' + settings.wwwroot + '/' + file, './' + settings.dest + '/' + file);
         });
+
+        // copy js files
+        settings.js.forEach(function (file) {
+          grunt.file.copy('./' + settings.wwwroot + '/' + file, './' + settings.dest + '/' + file);
+        });                                          
 
         grunt.log.ok('Stand-alone output can now be found in "' + settings.dest + '/"');
         grunt.event.emit('patternprimer:snapshot:written');
